@@ -1,82 +1,101 @@
-🚀 Flask CI/CD Pipeline Demo
-This project demonstrates a basic CI/CD (Continuous Integration & Continuous Deployment) pipeline using GitHub Actions for a Python Flask web application. It includes automatic testing and can be extended to support deployment to cloud platforms like Heroku, Render, or Docker-based VPS.
 
-📁 Project Structure
-bash
-Copy
-Edit
+# 🚀 Flask CI/CD Pipeline Demo
+
+This project demonstrates a **CI/CD (Continuous Integration and Continuous Deployment)** setup using **GitHub Actions** for a basic **Flask** application. The pipeline automatically runs unit tests on every push or pull request to the `main` branch.
+
+---
+
+## 📁 Project Structure
+
+```
 flask-ci-cd-app/
 │
 ├── app.py                 # Main Flask app
 ├── requirements.txt       # Python dependencies
-├── test_app.py            # Unit tests
+├── test\_app.py            # Unit tests
 └── .github/
-    └── workflows/
-        └── ci-cd.yml      # GitHub Actions workflow
-🔧 Tech Stack
-Language: Python 3.9
+└── workflows/
+└── ci-cd.yml      # GitHub Actions workflow
 
-Framework: Flask
+````
 
-CI/CD Tool: GitHub Actions
+---
 
-Deployment: Optional (Heroku, Docker, etc.)
+## 🔧 Tech Stack
 
-🛠️ Setup Locally
-1. Clone the Repository
-bash
-Copy
-Edit
+- **Language:** Python 3.9  
+- **Framework:** Flask  
+- **CI/CD Tool:** GitHub Actions  
+
+---
+
+## 🛠️ Local Setup Instructions
+
+### 1. Clone the Repository
+
+```bash
 git clone https://github.com/your-username/flask-ci-cd-app.git
 cd flask-ci-cd-app
-2. Set Up Virtual Environment
-bash
-Copy
-Edit
+````
+
+### 2. Set Up a Virtual Environment
+
+```bash
 python -m venv venv
 source venv/bin/activate  # On Windows use venv\Scripts\activate
-3. Install Dependencies
-bash
-Copy
-Edit
+```
+
+### 3. Install Dependencies
+
+```bash
 pip install -r requirements.txt
-4. Run the Application
-bash
-Copy
-Edit
+```
+
+### 4. Run the Application
+
+```bash
 python app.py
-App will be live at http://127.0.0.1:5000/
+```
 
-🧪 Running Unit Tests
-This project includes a simple test using Python’s built-in unittest framework.
+The app will be live at: [http://127.0.0.1:5000/](http://127.0.0.1:5000/)
 
-bash
-Copy
-Edit
+---
+
+## 🧪 Running Unit Tests
+
+This project uses Python’s built-in `unittest` framework. To run tests:
+
+```bash
 python -m unittest discover
-🤖 GitHub Actions CI/CD Workflow
-GitHub Actions automates the build and test process. The workflow is defined in:
+```
 
-bash
-Copy
-Edit
+---
+
+## 🤖 GitHub Actions: CI/CD Workflow
+
+GitHub Actions automates testing for this project.
+
+### 📄 Workflow File Location
+
+```
 .github/workflows/ci-cd.yml
-Workflow Triggers:
-On every push or pull_request to the main branch.
+```
 
-Workflow Steps:
-Checkout source code
+### ⚙️ Workflow Triggers
 
-Set up Python
+* On **push** to `main`
+* On **pull request** to `main`
 
-Install dependencies
+### 🧱 Workflow Steps
 
-Run unit tests
+1. **Checkout** the code
+2. **Set up Python 3.9**
+3. **Install dependencies**
+4. **Run unit tests**
 
-Example Workflow File:
-yaml
-Copy
-Edit
+### 🔍 Example Workflow
+
+```yaml
 name: CI/CD Pipeline
 
 on:
@@ -106,13 +125,19 @@ jobs:
     - name: Run tests
       run: |
         python -m unittest discover
-✅ CI/CD in Action
-Push code to GitHub
+```
 
-GitHub Actions triggers automatically
+---
 
-Code is built and dependencies installed
+## ✅ CI/CD in Action
 
-Tests are executed
+* Push or open a pull request
+* GitHub Actions will:
 
-Success/failure is shown in the Actions tab
+  * Build your app
+  * Install dependencies
+  * Run tests
+* See results in the **Actions** tab on GitHub
+
+---
+
